@@ -110,3 +110,26 @@ END
 Process finished with exit code 0
 
 ```
+
+# 编译为可执行文件
+Linux
+```bash
+SET CGO_ENABLED=0 
+SET GOOS=linux 
+SET GOARCH=amd64 
+go build main.go
+```
+MacOS
+```bash
+# M1
+CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build main.go
+
+# 非M1
+CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go
+```
+
+测试：
+```bash
+chmod +x main
+./main -f /tmp/math/Equation.DSMT4/oleObject73.bin
+```

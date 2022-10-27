@@ -112,20 +112,28 @@ Process finished with exit code 0
 ```
 
 # 编译为可执行文件
-Linux
+Linux 环境:
 ```bash
-SET CGO_ENABLED=0 
-SET GOOS=linux 
-SET GOARCH=amd64 
-go build main.go
+#编译linux可执行文件
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
+
+#编译windows可执行文件
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
 ```
-MacOS
+MacOS 环境：
 ```bash
 # M1
+#编译macOS M1可执行文件
 CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build main.go
 
-# 非M1
+#编译macOS 非M1可执行文件
 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go
+
+#编译linux可执行文件
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
+
+#编译windows可执行文件
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
 ```
 
 测试：
